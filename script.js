@@ -104,7 +104,7 @@ const T = {
     nav_support:"الدعم", ct_kicker:"الدعم الفني والتواصل", ct_title:"صار عندك أي شي؟ نحنا هون", ct_sub:"مشكلة بالاتصال، سؤال عن الباقات، أو بدك عرض توضيحي؟ اكتب لنا ومنرد عليك بأسرع وقت.", ct_form_t:"أرسل لنا رسالة", ct_name:"الاسم الكامل", ct_email:"البريد الإلكتروني", ct_phone:"رقم الهاتف", ct_company:"الشركة (اختياري)", ct_topic:"كيف نقدر نساعدك؟", ct_t1:"مشكلة تقنية", ct_t2:"الأسعار والاشتراك", ct_t3:"طلب عرض توضيحي", ct_t4:"أخرى", ct_msg:"رسالتك", ct_send:"إرسال الرسالة", ct_agree:"أوافق على", ct_policy:"سياسة الخصوصية", ct_ok:"تم فتح تطبيق البريد برسالتك، اضغط إرسال لإتمامها.", ct_info_t:"تواصل مع فريقنا", ct_mail:"البريد الإلكتروني", ct_tel:"الهاتف", ct_sup_t:"كيف بنساعدك", ct_h1:"وقت الرد", ct_h1v:"خلال ساعات العمل", ct_h2:"لغات الدعم", ct_h2v:"العربية، English، Türkçe", ct_h3:"أولوية الدعم", ct_h3v:"للباقة السنوية ومدى الحياة", ct_soc_t:"تابعنا",
 lc_syd:"فريق يدعم المستخدمين بالمنطقة.",
     ct_wa:"واتساب", ct_off_t:"مكاتبنا", ct_map:"افتح في خرائط Google",
-    pt_kicker:"شركاؤنا", pt_title:"شركات وثقت بنا", pt_sub:"كل شركة بتتعاقد معنا بيظهر شعارها هون، ونكبر مع بعض.", pt_count:"شريك", pt_cta_t:"شعار شركتك ممكن يكون هون", pt_cta_d:"وقّع عقد شراكة معنا وبنضيف شعارك فوراً.", pt_cta_b:"كن شريكاً"  },
+    pt_kicker:"شركاؤنا", pt_title:"شركات وثقت بنا", pt_sub:"كل شركة بتتعاقد معنا بيظهر شعارها هون، ونكبر مع بعض.", pt_count:"شريك", pt_cta_t:"شعار شركتك ممكن يكون التالي", pt_cta_d:"وقّع عقد شراكة معنا وبنضيف شعارك فوراً.", pt_cta_b:"كن شريكاً"  },
   en:{dir:"ltr", title:"DeskControl Pro — Secure, direct remote control",
     nav_home:"Home", nav_features:"Features", nav_security:"Security", nav_packages:"Packages", nav_faq:"FAQ", nav_download:"Download",
     hero_badge:"Direct, encrypted remote control",

@@ -532,8 +532,8 @@ html[dir] .rv.in{opacity:1;transform:none}
   font-size:13px;font-weight:600;padding:9px 16px;border-radius:22px;cursor:pointer;transition:.2s}
 .pf-o button:hover{border-color:var(--blue);color:var(--blue)}
 .pf-o button.on{background:var(--blue);border-color:var(--blue);color:#fff}
-.pf-r{margin-top:20px;padding:16px 18px;border-radius:var(--r-md);background:var(--blue-l);
-  display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.pf-r{margin-top:13px;padding:16px 18px;border-radius:var(--r-md);background:var(--blue-l);
+  display:flex;align-items:center;gap:13px;flex-wrap:wrap}
 .pf-r span{font-weight:700;font-size:14.5px;color:var(--ink)}
 .pf-r em{font-style:normal;color:var(--blue)}
 .pf-r .btn{margin-inline-start:auto;padding:9px 20px}
