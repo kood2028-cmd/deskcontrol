@@ -453,3 +453,65 @@ const PARTNERS=[
     let n=0;const end=PARTNERS.length,s=setInterval(()=>{c.textContent=++n;if(n>=end)clearInterval(s)},90)
   },{threshold:.5}).observe(c);
 })();
+/* ===== Plan finder ===== */
+(function(){
+  const bill=document.querySelector(".bill"); if(!bill) return;
+
+  // النصوص بالثلاث لغات (بتنضاف على T الموجود)
+  Object.assign(T.ar,{pf_t:"مو متأكد أي باقة تناسبك؟",pf_s:"جاوب على سؤالين ونقترح عليك الأنسب.",
+    pf_q1:"كم مدة بدك تستخدم البرنامج؟",pf_d0:"أجرّب أول",pf_d1:"كم شهر",pf_d2:"سنة",pf_d3:"للأبد",
+    pf_q2:"كم جهاز بدك تدير؟",pf_n0:"حتى 3",pf_n1:"4 – 5",pf_n2:"6 – 10",
+    pf_res:"الأنسب لك:",pf_go:"شوف الباقة"});
+  Object.assign(T.en,{pf_t:"Not sure which plan fits you?",pf_s:"Answer two quick questions and we'll suggest the best one.",
+    pf_q1:"How long will you use the app?",pf_d0:"Just trying",pf_d1:"A few months",pf_d2:"A year",pf_d3:"Forever",
+    pf_q2:"How many devices will you manage?",pf_n0:"Up to 3",pf_n1:"4 – 5",pf_n2:"6 – 10",
+    pf_res:"Best fit for you:",pf_go:"View plan"});
+  Object.assign(T.tr,{pf_t:"Hangi plan sana uygun, emin değil misin?",pf_s:"İki kısa soruyu yanıtla, en uygununu önerelim.",
+    pf_q1:"Uygulamayı ne kadar süre kullanacaksın?",pf_d0:"Sadece deneyeceğim",pf_d1:"Birkaç ay",pf_d2:"Bir yıl",pf_d3:"Sonsuza kadar",
+    pf_q2:"Kaç cihaz yöneteceksin?",pf_n0:"3'e kadar",pf_n1:"4 – 5",pf_n2:"6 – 10",
+    pf_res:"Sana en uygun:",pf_go:"Planı gör"});
+
+  const names=["pkg_m_name","pkg_q_name","pkg_y_name","pkg_life_name"];
+  const prices=["$9","$23","$79","$149"];
+  const opt=(q,k,n)=>Array.from({length:n},(_,i)=>
+    '<button type="button" data-q="'+q+'" data-v="'+i+'" data-i18n="pf_'+k+i+'"></button>').join("");
+
+  const box=document.createElement("div");
+  box.className="pf";
+  box.innerHTML=
+    '<div class="pf-h"><i class="fa-solid fa-wand-magic-sparkles"></i><div>'+
+      '<b data-i18n="pf_t"></b><small data-i18n="pf_s"></small></div></div>'+
+    '<div class="pf-q"><span data-i18n="pf_q1"></span><div class="pf-o">'+opt("d","d",4)+'</div></div>'+
+    '<div class="pf-q"><span data-i18n="pf_q2"></span><div class="pf-o">'+opt("n","n",3)+'</div></div>'+
+    '<div class="pf-r hide" id="pfR"></div>';
+  bill.parentNode.insertBefore(box,bill);
+
+  const ans={d:null,n:null};
+  function render(){
+    const r=document.getElementById("pfR");
+    if(ans.d===null||ans.n===null){r.classList.add("hide");return}
+    // الباقة = الأكبر بين (حسب المدة) و(حسب عدد الأجهزة: 0→شهرية، 1→3 أشهر، 2→سنوية)
+    const i=Math.max(ans.d,ans.n);
+    r.innerHTML='<span>'+t("pf_res")+' <em>'+t(names[i])+' — '+prices[i]+'</em></span>'+
+      '<button type="button" class="btn btn-primary" data-go="'+i+'">'+t("pf_go")+'</button>';
+    r.classList.remove("hide");
+  }
+
+  box.addEventListener("click",e=>{
+    const b=e.target.closest("button"); if(!b) return;
+    if(b.dataset.q){
+      ans[b.dataset.q]=+b.dataset.v;
+      box.querySelectorAll('button[data-q="'+b.dataset.q+'"]').forEach(x=>x.classList.toggle("on",x===b));
+      render();
+    }else if(b.dataset.go){
+      const p=document.querySelectorAll("#plansBox .plan")[+b.dataset.go]; if(!p) return;
+      document.querySelectorAll(".plan.pf-hl").forEach(x=>x.classList.remove("pf-hl"));
+      p.scrollIntoView({behavior:"smooth",block:"center"});
+      p.classList.add("pf-hl");
+      setTimeout(()=>p.classList.remove("pf-hl"),3500);
+    }
+  });
+
+  applyLang(document.documentElement.lang);                      // ترجمة العناصر الجديدة
+  new MutationObserver(render).observe(document.documentElement,{attributes:true,attributeFilter:["lang"]});
+})();

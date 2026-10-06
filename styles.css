@@ -517,3 +517,25 @@ html[dir] .rv.in{opacity:1;transform:none}
 .ct-row{align-items:flex-start}
 .ct-agree input{width:16px;height:16px;accent-color:var(--blue)}
 .fld select{appearance:auto}
+/* ===== Plan finder ===== */
+.pf{max-width:820px;margin:0 auto 40px;background:var(--card);border:1px solid var(--bd);
+  border-radius:var(--r-lg);padding:24px;box-shadow:var(--card-sh)}
+.pf-h{display:flex;gap:14px;align-items:center;margin-bottom:18px}
+.pf-h>i{width:46px;height:46px;flex:none;border-radius:14px;background:var(--blue);color:#fff;
+  display:flex;align-items:center;justify-content:center;font-size:18px}
+.pf-h b{display:block;font-size:17px}
+.pf-h small{color:var(--txt);font-size:13px}
+.pf-q{margin-top:16px}
+.pf-q>span{display:block;font-weight:700;font-size:13.5px;margin-bottom:9px}
+.pf-o{display:flex;flex-wrap:wrap;gap:8px}
+.pf-o button{border:1.5px solid var(--bd);background:var(--bg);color:var(--txt);font:inherit;
+  font-size:13px;font-weight:600;padding:9px 16px;border-radius:22px;cursor:pointer;transition:.2s}
+.pf-o button:hover{border-color:var(--blue);color:var(--blue)}
+.pf-o button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.pf-r{margin-top:20px;padding:16px 18px;border-radius:var(--r-md);background:var(--blue-l);
+  display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.pf-r span{font-weight:700;font-size:14.5px;color:var(--ink)}
+.pf-r em{font-style:normal;color:var(--blue)}
+.pf-r .btn{margin-inline-start:auto;padding:9px 20px}
+.plan.pf-hl{outline:3px solid var(--blue);outline-offset:4px;animation:pfp 1s ease-in-out 3}
+@keyframes pfp{50%{transform:translateY(-8px)}}
